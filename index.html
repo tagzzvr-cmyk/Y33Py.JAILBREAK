@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
 <meta name="description" content="Y33Py.JAILBREAK — Think, Build, Analyze, Create. Created by Tagzz.">
-<title>Y33Py.JAILBREAK — Meet Y33Py</title>
+<title>Y33Py.JAILBREAK — Think. Build. Create.</title>
 <style>
 :root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2c;--line:#1c3853;--text:#eaf5ff;--muted:#9bb2c9;--blue:#229fe6;--cyan:#6be7ff}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#123c60 0,transparent 55%),var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
@@ -20,32 +20,15 @@ footer{border-top:1px solid #ffffff12;padding:22px 0 30px;color:var(--muted);fon
 </style>
 </head>
 <body>
-<header class="wrap"><nav><a class="brand" href="#">Y33P<span>y</span>.JAILBREAK</a><div class="navlinks"><a href="#features">Features</a><a href="#chat">Chat</a><a href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav></header>
+<header class="wrap"><nav><a class="brand" href="#">Y33P<span>y</span>.JAILBREAK</a><div class="navlinks"><a href="#features">Features</a><a href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav></header>
 <main>
-<section class="hero wrap"><div class="eyebrow">✦ YOUR AI WORKSPACE</div><h1>Meet Y33Py.<br><span class="grad">Think bigger.</span></h1><p class="lead">Think • Build • Analyze • Create. Your project assistant, powered by OpenAI.</p></section>
+<section class="hero wrap"><div class="eyebrow">✦ THE CREATOR WORKSPACE</div><h1>Welcome to Y33Py.<br><span class="grad">Think bigger.</span></h1><p class="lead">A space for ideas, projects, and creativity. Think • Build • Analyze • Create.</p></section>
 <section class="section wrap" id="features"><div class="grid">
-<article class="card"><div>🧠</div><h3>Think</h3><p>Explore ideas, ask questions, and plan your next move.</p></article>
-<article class="card"><div>🛠️</div><h3>Build</h3><p>Work through code, features, and project milestones.</p></article>
-<article class="card"><div>🔎</div><h3>Analyze</h3><p>Break down information and understand what matters.</p></article>
+<article class="card"><div>🧠</div><h3>Think</h3><p>Turn fresh ideas into plans and possibilities.</p></article>
+<article class="card"><div>🛠️</div><h3>Build</h3><p>Bring your projects to life, one step at a time.</p></article>
+<article class="card"><div>🔎</div><h3>Analyze</h3><p>Organize information and see the bigger picture.</p></article>
 </div></section>
-<section class="section wrap" id="chat"><h2>Chat with Y33Py</h2><p class="sub">Ask a question or tell Y33Py what you're working on.</p>
-<div class="chat"><div class="chathead"><strong>✦ Y33Py Assistant</strong><span class="state" id="status">Ready</span></div>
-<div class="messages" id="messages" aria-live="polite"><div class="welcome" id="welcome">Hey! I'm Y33Py. What are we thinking, building, analyzing, or creating today?</div></div>
-<div class="error" id="error" role="status"></div>
-<form class="compose" id="chatForm"><textarea id="message" maxlength="8000" placeholder="Message Y33Py..." aria-label="Message Y33Py" required></textarea><button class="btn" id="send" type="submit">Send ↑</button></form>
-<div class="hint">Don't share passwords, API keys, or private information. AI responses can make mistakes.</div></div>
-</section>
 </main>
 <footer><div class="wrap foot"><span>© 2026 Y33Py.JAILBREAK · Created by <strong>Tagzz</strong></span><span>THINK • BUILD • ANALYZE • CREATE</span></div></footer>
-<script>
-const form=document.getElementById('chatForm'),input=document.getElementById('message'),messagesEl=document.getElementById('messages'),statusEl=document.getElementById('status'),errorEl=document.getElementById('error'),send=document.getElementById('send');
-const history=[];
-function addBubble(role,text){const el=document.createElement('div');el.className='bubble '+role;el.textContent=text;messagesEl.appendChild(el);messagesEl.scrollTop=messagesEl.scrollHeight;}
-form.addEventListener('submit',async(e)=>{e.preventDefault();const text=input.value.trim();if(!text||send.disabled)return;document.getElementById('welcome')?.remove();errorEl.textContent='';history.push({role:'user',content:text});addBubble('user',text);input.value='';send.disabled=true;statusEl.textContent='Thinking…';const pending=document.createElement('div');pending.className='bubble assistant';pending.textContent='Y33Py is thinking…';messagesEl.appendChild(pending);messagesEl.scrollTop=messagesEl.scrollHeight;
-try{const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})});const data=await response.json();pending.remove();if(!response.ok)throw new Error(data.error||'Unable to reach Y33Py.');const reply=String(data.reply||'').trim();if(!reply)throw new Error('Y33Py returned an empty response.');history.push({role:'assistant',content:reply});addBubble('assistant',reply);statusEl.textContent='Ready';}
-catch(err){pending.remove();history.pop();errorEl.textContent=err.message+' If this is a new deployment, check the server setup.';statusEl.textContent='Connection issue';}
-finally{send.disabled=false;input.focus();}
-});
-input.addEventListener('keydown',(e)=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
-</script>
+
 </body></html>
