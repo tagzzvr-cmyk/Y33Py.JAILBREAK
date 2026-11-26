@@ -17,10 +17,16 @@ h1{font-size:clamp(42px,8vw,72px);line-height:1.03;letter-spacing:-.055em;margin
 .chat{max-width:800px;margin:auto;background:#091827;border:1px solid #255071;border-radius:20px;overflow:hidden;box-shadow:0 24px 80px #0005}.chathead{padding:16px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.state{font-size:11px;color:#a8e7bd;border:1px solid #286344;background:#102d25;border-radius:99px;padding:4px 9px}.messages{height:360px;overflow-y:auto;padding:17px;display:flex;flex-direction:column;gap:12px}.bubble{max-width:88%;padding:11px 14px;border-radius:15px;white-space:pre-wrap;overflow-wrap:anywhere}.user{align-self:flex-end;background:#124c73;border:1px solid #2874a3}.assistant{align-self:flex-start;background:#12263a;border:1px solid #29445e}.welcome{color:var(--muted);font-size:14px;text-align:center;margin:auto;max-width:420px}.compose{padding:13px;border-top:1px solid var(--line);display:flex;gap:9px;align-items:flex-end}.compose textarea{flex:1;min-width:0;min-height:48px;max-height:140px;resize:vertical;background:#071321;border:1px solid #29445e;border-radius:12px;padding:12px;color:var(--text);font:inherit;outline:none}.compose textarea:focus{border-color:var(--blue)}.hint{padding:0 16px 13px;color:var(--muted);font-size:11px}.error{color:#ffb4b4;font-size:13px;text-align:center;padding:8px 15px}
 footer{border-top:1px solid #ffffff12;padding:22px 0 30px;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:650px){.navlinks{gap:11px;font-size:12px}.grid{grid-template-columns:1fr}.hero{padding:58px 0 32px}.lead{font-size:15px}.messages{height:52vh;min-height:300px}.bubble{max-width:94%}.compose{gap:7px}.compose .btn{padding:11px 13px}}
+
+.promptbox{max-width:850px;margin:auto;background:#091827;border:1px solid #255071;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #0004}
+.prompttop{padding:15px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line)}
+#promptText{margin:0;padding:18px;max-height:390px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;color:#cce5f8;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
+.promptbox .hint{padding:0 18px 17px;font-size:12px}
+.copy-status{font-size:12px;color:#a8e7bd;min-height:20px;padding:0 18px 8px}
 </style>
 </head>
 <body>
-<header class="wrap"><nav><a class="brand" href="#">Y33P<span>y</span>.JAILBREAK</a><div class="navlinks"><a href="#features">Features</a><a href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav></header>
+<header class="wrap"><nav><a class="brand" href="#">Y33P<span>y</span>.JAILBREAK</a><div class="navlinks"><a href="#features">Features</a><a href="#prompt">Get prompt</a><a href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav></header>
 <main>
 <section class="hero wrap"><div class="eyebrow">✦ THE CREATOR WORKSPACE</div><h1>Welcome to Y33Py.<br><span class="grad">Think bigger.</span></h1><p class="lead">A space for ideas, projects, and creativity. Think • Build • Analyze • Create.</p></section>
 <section class="section wrap" id="features"><div class="grid">
@@ -28,7 +34,52 @@ footer{border-top:1px solid #ffffff12;padding:22px 0 30px;color:var(--muted);fon
 <article class="card"><div>🛠️</div><h3>Build</h3><p>Bring your projects to life, one step at a time.</p></article>
 <article class="card"><div>🔎</div><h3>Analyze</h3><p>Organize information and see the bigger picture.</p></article>
 </div></section>
+
+<section class="section wrap" id="prompt">
+<h2>Take Y33Py with you</h2>
+<p class="sub">Copy the prompt below, then paste it into a new chat in ChatGPT or Claude.</p>
+<div class="promptbox">
+<div class="prompttop"><strong>✦ Y33Py — Assistant Prompt</strong><button class="btn" id="copyPrompt" type="button">Copy prompt ⧉</button></div>
+<pre id="promptText">You are Y33Py, a capable, friendly, creative AI assistant created by Tagzz.
+
+YOUR IDENTITY
+Name: Y33Py
+Creator: Tagzz
+Motto: THINK • BUILD • ANALYZE • CREATE
+
+YOUR PURPOSE
+Help the user turn ideas into finished work. Be a practical collaborator: understand the goal, make sensible decisions, and produce useful results rather than only discussing possibilities.
+
+HOW TO WORK
+- Be clear, upbeat, thoughtful, and adaptable to the user's tone.
+- For projects, favor working deliverables, complete examples, and step-by-step implementation.
+- For coding, provide complete, usable code; explain where files go and how to run or publish the result.
+- For planning, organize the work into realistic steps and identify the next action.
+- Ask a concise clarification only when a missing detail genuinely blocks progress. Otherwise make a reasonable assumption and state it.
+- Be honest about limitations. Never claim to have opened a link, edited a file, deployed a site, or completed an action unless you actually did.
+- Keep answers focused, but explain important decisions.
+- When information may have changed, say so and verify it when tools or browsing are available.
+
+CREATIVE AND TECHNICAL SKILLS
+Support brainstorming, writing, research, learning, coding, debugging, website creation, game development, design direction, project organization, and analysis. Help the user improve their own ideas while respecting their creative direction.
+
+SAFETY AND TRUST
+Follow the platform's safety rules and applicable laws. Do not help bypass another AI's safeguards, access controls, or security protections. Do not assist with harmful or illegal activity. Protect private information, passwords, and API keys. Never ask the user to publish secrets in code or public repositories. Be especially careful with advice involving minors.
+
+RESPONSE STYLE
+Use readable headings, lists, and code blocks when helpful. Be friendly without being overfamiliar. Give the most useful answer first. End with one specific next step when it would genuinely help.
+
+You are Y33Py. THINK • BUILD • ANALYZE • CREATE.</pre>
+<p class="hint">Tip: After pasting, send “Introduce yourself as Y33Py and help me with my project.”</p>
+</div>
+</section>
 </main>
 <footer><div class="wrap foot"><span>© 2026 Y33Py.JAILBREAK · Created by <strong>Tagzz</strong></span><span>THINK • BUILD • ANALYZE • CREATE</span></div></footer>
+
+
+<script>
+const copyButton=document.getElementById('copyPrompt');
+if(copyButton){copyButton.addEventListener('click',async()=>{const prompt=document.getElementById('promptText').innerText;try{await navigator.clipboard.writeText(prompt);copyButton.textContent='Copied ✓';}catch(error){const range=document.createRange();range.selectNodeContents(document.getElementById('promptText'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);copyButton.textContent='Select and copy';}setTimeout(()=>copyButton.textContent='Copy prompt ⧉',2200);});}
+</script>
 
 </body></html>
