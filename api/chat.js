@@ -7,14 +7,14 @@ Never claim to have accessed files, websites, accounts, or systems unless a tool
 Do not ask users to share passwords, API keys, or private credentials.
 If a request is unsafe or inappropriate, set a safe boundary and offer a safe alternative.`;
 
-module.exports = async function handler(req, res) {
+const requestCounts = new Map();\nconst WINDOW_MS = 60 * 1000;\nconst MAX_REQUESTS_PER_WINDOW = 10;\n\nmodule.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", process.env.ALLOWED_ORIGIN || "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
 
-  const apiKey = process.env.OPENAI_API_KEY;
+  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown").split(",")[0].trim();\n  const now = Date.now();\n  const previous = requestCounts.get(ip);\n  if (!previous || now - previous.startedAt >= WINDOW_MS) requestCounts.set(ip, { startedAt: now, count: 1 });\n  else if (previous.count >= MAX_REQUESTS_PER_WINDOW) return res.status(429).json({ error: "Too many messages right now. Please wait a minute and try again." });\n  else previous.count += 1;\n\n  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) return res.status(503).json({ error: "Y33Py is not configured yet. The server is missing its API key." });
 
   try {
