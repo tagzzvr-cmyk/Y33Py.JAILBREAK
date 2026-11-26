@@ -23,6 +23,13 @@ footer{border-top:1px solid #ffffff12;padding:22px 0 30px;color:var(--muted);fon
 #promptText{margin:0;padding:18px;max-height:390px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;color:#cce5f8;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
 .promptbox .hint{padding:0 18px 17px;font-size:12px}
 .copy-status{font-size:12px;color:#a8e7bd;min-height:20px;padding:0 18px 8px}
+
+.social-links{max-width:650px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.social-card{display:flex;align-items:center;gap:13px;padding:17px;background:linear-gradient(145deg,#10243a,#0b1929);border:1px solid var(--line);border-radius:15px;transition:transform .18s,border-color .18s}
+.social-card:hover{transform:translateY(-3px);border-color:var(--cyan)}
+.social-icon{width:42px;height:42px;display:grid;place-items:center;background:#123a58;border-radius:12px;color:var(--cyan);font-size:22px;font-weight:900}
+.social-card strong,.social-card small{display:block}.social-card small{color:var(--muted);font-size:12px}.social-card .arrow{margin-left:auto;color:var(--cyan)}
+@media(max-width:520px){.social-links{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -73,6 +80,16 @@ You are Y33Py. THINK • BUILD • ANALYZE • CREATE.</pre>
 <p class="hint">Tip: After pasting, send “Introduce yourself as Y33Py and help me with my project.”</p>
 </div>
 </section>
+
+<section class="section wrap" id="socials">
+<h2>Follow Tagzz</h2>
+<p class="sub">More builds, videos, and Yeeps content.</p>
+<div class="social-links">
+<a class="social-card" href="https://www.tiktok.com/@tagzzvr" target="_blank" rel="noopener noreferrer"><span class="social-icon">♪</span><span><strong>TikTok</strong><small>@tagzzvr</small></span><span class="arrow">↗</span></a>
+<a class="social-card" href="https://www.youtube.com/@tagzziscool" target="_blank" rel="noopener noreferrer"><span class="social-icon">▶</span><span><strong>YouTube</strong><small>@tagzziscool</small></span><span class="arrow">↗</span></a>
+</div>
+</section>
+
 </main>
 <footer><div class="wrap foot"><span>© 2026 Y33Py.JAILBREAK · Created by <strong>Tagzz</strong></span><span>THINK • BUILD • ANALYZE • CREATE</span></div></footer>
 
