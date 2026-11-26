@@ -1,53 +1,96 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05080d">
 <meta name="description" content="Y33Py.JAILBREAK — Think, Build, Analyze, Create. Created by Tagzz.">
-<title>Y33Py.JAILBREAK — Think. Build. Create.</title>
+<title>Y33Py.JAILBREAK — Command Center</title>
 <style>
-:root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2c;--line:#1c3853;--text:#eaf5ff;--muted:#9bb2c9;--blue:#229fe6;--cyan:#6be7ff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#123c60 0,transparent 55%),var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:min(1000px,calc(100% - 32px));margin:auto}
-nav{height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{font-weight:900;letter-spacing:.04em}.brand span{color:var(--cyan)}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:14px}
-.hero{text-align:center;padding:76px 0 42px}.eyebrow{display:inline-block;border:1px solid #2a6485;background:#0b2940;border-radius:99px;padding:5px 12px;color:#a9eaff;font-size:11px;font-weight:800;letter-spacing:.13em}
-h1{font-size:clamp(42px,8vw,72px);line-height:1.03;letter-spacing:-.055em;margin:20px 0 14px}.grad{background:linear-gradient(90deg,#fff,#79dfff 55%,#389bff);background-clip:text;color:transparent}.lead{max-width:620px;margin:auto;color:var(--muted);font-size:17px}
-.btn{border:0;border-radius:11px;padding:11px 17px;background:linear-gradient(120deg,#159ee8,#2563eb);color:white;font-weight:800;cursor:pointer}.btn:disabled{opacity:.5;cursor:not-allowed}
-.section{padding:24px 0 62px}.section h2{text-align:center;font-size:27px;margin:0 0 8px}.sub{text-align:center;color:var(--muted);margin:0 auto 24px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.card{background:linear-gradient(145deg,#10243a,#0b1929);border:1px solid var(--line);border-radius:16px;padding:19px}.card h3{margin:7px 0 3px}.card p{margin:0;color:var(--muted);font-size:14px}
-.chat{max-width:800px;margin:auto;background:#091827;border:1px solid #255071;border-radius:20px;overflow:hidden;box-shadow:0 24px 80px #0005}.chathead{padding:16px 19px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.state{font-size:11px;color:#a8e7bd;border:1px solid #286344;background:#102d25;border-radius:99px;padding:4px 9px}.messages{height:360px;overflow-y:auto;padding:17px;display:flex;flex-direction:column;gap:12px}.bubble{max-width:88%;padding:11px 14px;border-radius:15px;white-space:pre-wrap;overflow-wrap:anywhere}.user{align-self:flex-end;background:#124c73;border:1px solid #2874a3}.assistant{align-self:flex-start;background:#12263a;border:1px solid #29445e}.welcome{color:var(--muted);font-size:14px;text-align:center;margin:auto;max-width:420px}.compose{padding:13px;border-top:1px solid var(--line);display:flex;gap:9px;align-items:flex-end}.compose textarea{flex:1;min-width:0;min-height:48px;max-height:140px;resize:vertical;background:#071321;border:1px solid #29445e;border-radius:12px;padding:12px;color:var(--text);font:inherit;outline:none}.compose textarea:focus{border-color:var(--blue)}.hint{padding:0 16px 13px;color:var(--muted);font-size:11px}.error{color:#ffb4b4;font-size:13px;text-align:center;padding:8px 15px}
-footer{border-top:1px solid #ffffff12;padding:22px 0 30px;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media(max-width:650px){.navlinks{gap:11px;font-size:12px}.grid{grid-template-columns:1fr}.hero{padding:58px 0 32px}.lead{font-size:15px}.messages{height:52vh;min-height:300px}.bubble{max-width:94%}.compose{gap:7px}.compose .btn{padding:11px 13px}}
-
-.promptbox{max-width:850px;margin:auto;background:#091827;border:1px solid #255071;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px #0004}
-.prompttop{padding:15px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--line)}
-#promptText{margin:0;padding:18px;max-height:390px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;color:#cce5f8;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
-.promptbox .hint{padding:0 18px 17px;font-size:12px}
-.copy-status{font-size:12px;color:#a8e7bd;min-height:20px;padding:0 18px 8px}
-
-.social-links{max-width:650px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.social-card{display:flex;align-items:center;gap:13px;padding:17px;background:linear-gradient(145deg,#10243a,#0b1929);border:1px solid var(--line);border-radius:15px;transition:transform .18s,border-color .18s}
-.social-card:hover{transform:translateY(-3px);border-color:var(--cyan)}
-.social-icon{width:42px;height:42px;display:grid;place-items:center;background:#123a58;border-radius:12px;color:var(--cyan);font-size:22px;font-weight:900}
-.social-card strong,.social-card small{display:block}.social-card small{color:var(--muted);font-size:12px}.social-card .arrow{margin-left:auto;color:var(--cyan)}
-@media(max-width:520px){.social-links{grid-template-columns:1fr}}
+:root{color-scheme:dark;--bg:#05080d;--panel:#091725;--panel2:#0c2031;--line:#174461;--text:#e9f6ff;--muted:#91aec3;--blue:#159fe8;--cyan:#51d4ff;--glow:0 0 26px #087fc533}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#0b3150 0,transparent 48%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}.shell{width:min(1180px,calc(100% - 28px));margin:18px auto 34px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 20px;border:1px solid var(--line);border-radius:17px;background:#07131feF;box-shadow:var(--glow)}.brand{font-weight:950;letter-spacing:.045em;font-size:clamp(17px,3vw,23px)}.brand span{color:var(--cyan)}.topmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pill{font-size:10px;letter-spacing:.1em;font-weight:850;padding:5px 10px;border:1px solid #247c58;border-radius:99px;color:#8df0bd;background:#0b241d}.version{font-size:11px;color:var(--cyan);font-weight:800}.layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:16px;margin-top:16px}.sidebar,.mainpanel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(155deg,#091725,#060e17);box-shadow:var(--glow)}.sidebar{padding:14px;height:max-content;position:sticky;top:14px}.side-label{font-size:10px;letter-spacing:.16em;color:#6f9ab6;font-weight:900;padding:8px 10px 11px}.navbtn{width:100%;display:flex;align-items:center;gap:11px;text-align:left;padding:11px 12px;margin:3px 0;border:1px solid transparent;border-radius:11px;background:transparent;color:#a9c1d3;font-weight:700;font-size:13px;transition:.16s}.navbtn:hover{background:#0b2334;color:#e9f8ff}.navbtn.active{background:linear-gradient(100deg,#0c3b5a,#0b263b);border-color:#167db4;color:#65d6ff;box-shadow:inset 3px 0 #35bfff}.navicon{width:20px;text-align:center;font-size:15px}.sidefoot{margin:14px 5px 2px;padding:12px 8px 3px;border-top:1px solid #14364d;color:#7293aa;font-size:11px}.mainpanel{padding:clamp(16px,3vw,27px);min-height:650px}.page{display:none;animation:fade .2s ease}.page.active{display:block}@keyframes fade{from{opacity:.3;transform:translateY(4px)}to{opacity:1;transform:none}}.pagehead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:21px}.kicker{font-size:10px;letter-spacing:.16em;color:var(--cyan);font-weight:900}.page h1{font-size:clamp(23px,4vw,32px);line-height:1.15;margin:5px 0 5px;letter-spacing:-.035em}.muted{color:var(--muted)}.sub{font-size:13px;color:var(--muted);margin:0}.tag{font-size:10px;font-weight:900;letter-spacing:.08em;color:#69d7ff;border:1px solid #1b638c;background:#0b2538;border-radius:99px;padding:5px 9px;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.stat,.tile,.panelbox{border:1px solid #173c55;border-radius:14px;background:linear-gradient(145deg,#0c2030,#091521);padding:15px}.stat small{display:block;color:#83a4ba;font-size:10px;letter-spacing:.1em;font-weight:850}.stat strong{display:block;font-size:19px;margin:6px 0 2px}.stat em{font-style:normal;color:#6edcff;font-size:11px}.sectiontitle{font-size:12px;letter-spacing:.12em;color:#b6d7e9;font-weight:900;margin:22px 0 11px}.quickgrid,.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.action,.tile{border:1px solid #17425e;border-radius:12px;background:#0a1a28;color:var(--text);padding:13px;text-align:left;transition:.16s}.action:hover,.tile:hover{border-color:#28aeea;background:#0c263a;transform:translateY(-1px)}.action strong,.tile strong{display:block;font-size:13px}.action span,.tile span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.primary{border:1px solid #168dca;border-radius:10px;background:linear-gradient(115deg,#087dbd,#1262b7);color:white;font-weight:850;padding:10px 14px;box-shadow:0 6px 22px #087fc533}.secondary{border:1px solid #24516d;border-radius:10px;background:#0a1b29;color:#bdeaff;font-weight:800;padding:9px 13px}.statusbox{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border:1px solid #17445e;border-radius:12px;background:#081925;margin-top:15px}.statusbox strong{font-size:12px;color:#66d8ff}.statusbox span{font-size:11px;color:var(--muted)}.search{width:100%;padding:12px 13px;background:#06111b;border:1px solid #20465f;border-radius:11px;color:var(--text);outline:none;margin:4px 0 13px}.search:focus{border-color:#26a9e5;box-shadow:0 0 0 3px #159fe822}.commandlist{display:grid;gap:8px}.command{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;width:100%;border:1px solid #173d55;border-radius:11px;background:#091a27;color:var(--text);padding:12px}.command.selected{border-color:#168dca;background:#0c2a40}.command b{font-size:13px;color:#73d8ff}.command small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.command .check{font-size:10px;color:#72dfff;font-weight:900}.selectedbox{margin-top:13px;padding:14px;border:1px solid #1b5778;border-radius:13px;background:#071b29}.selectedbox code{font-size:19px;color:#75dcff;font-weight:900}.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.tile{cursor:pointer}.tile .tileicon{font-size:20px;margin-bottom:6px}.bulletlist{display:grid;gap:9px}.bullet{padding:12px 13px;border:1px solid #173d55;border-radius:11px;background:#091a27;color:#c9dfed;font-size:13px}.bullet:before{content:'◆';color:#39bfff;margin-right:10px;font-size:10px}.prompt{white-space:pre-wrap;overflow-wrap:anywhere;max-height:330px;overflow:auto;padding:15px;border:1px solid #1b4965;border-radius:12px;background:#050e16;color:#c6e2f4;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}.socials{display:flex;gap:10px;flex-wrap:wrap}.social{display:flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid #1a4966;border-radius:11px;background:#0a1b29;color:#bceaff;font-size:12px;font-weight:800}.social:hover{border-color:#39bfff}.notice{min-height:18px;color:#81e5b1;font-size:11px;margin-top:8px}.footer{text-align:center;color:#64869e;font-size:11px;padding:18px 5px}.mobiletitle{display:none}
+@media(max-width:760px){.shell{width:min(100% - 18px,650px);margin:9px auto 22px}.layout{grid-template-columns:1fr}.sidebar{position:static;padding:9px}.side-label,.sidefoot{display:none}.navlist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.navbtn{justify-content:center;flex-direction:column;gap:3px;padding:9px 3px;margin:0;font-size:9px;text-align:center}.navicon{font-size:16px}.mainpanel{min-height:580px}.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.stat{padding:10px}.stat strong{font-size:15px}.stat small{font-size:8px}.mobiletitle{display:block;color:#6f9ab6;font-size:10px;letter-spacing:.13em;font-weight:900;margin:2px 0 8px}.topbar{padding:13px}.version{display:none}}
+@media(max-width:430px){.navbtn{font-size:8px}.navicon{font-size:14px}.quickgrid,.tiles{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:span 2}}
 </style>
 </head>
 <body>
-<header class="wrap"><nav><a class="brand" href="#">Y33P<span>y</span>.JAILBREAK</a><div class="navlinks"><a href="#features">Features</a><a href="#prompt">Get prompt</a><a href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noreferrer">GitHub ↗</a></div></nav></header>
-<main>
-<section class="hero wrap"><div class="eyebrow">✦ THE CREATOR WORKSPACE</div><h1>Welcome to Y33Py.<br><span class="grad">Think bigger.</span></h1><p class="lead">A space for ideas, projects, and creativity. Think • Build • Analyze • Create.</p></section>
-<section class="section wrap" id="features"><div class="grid">
-<article class="card"><div>🧠</div><h3>Think</h3><p>Turn fresh ideas into plans and possibilities.</p></article>
-<article class="card"><div>🛠️</div><h3>Build</h3><p>Bring your projects to life, one step at a time.</p></article>
-<article class="card"><div>🔎</div><h3>Analyze</h3><p>Organize information and see the bigger picture.</p></article>
-</div></section>
-
-<section class="section wrap" id="prompt">
-<h2>Take Y33Py with you</h2>
-<p class="sub">Copy the prompt below, then paste it into a new chat in ChatGPT or Claude.</p>
-<div class="promptbox">
-<div class="prompttop"><strong>✦ Y33Py — Assistant Prompt</strong><button class="btn" id="copyPrompt" type="button">Copy prompt ⧉</button></div>
-<pre id="promptText">You are Y33Py, a capable, friendly, creative AI assistant created by Tagzz.
+<div class="shell">
+<header class="topbar"><a class="brand" href="#"><span>Y33P</span>y.JAILBREAK</a><div class="topmeta"><span class="pill">● SYSTEM ONLINE</span><span class="version">VERSION 1.0.0</span></div></header>
+<div class="layout">
+<aside class="sidebar"><div class="side-label">COMMAND NAVIGATION</div><div class="navlist" id="navlist">
+<button class="navbtn active" data-page="dashboard"><span class="navicon">⌂</span>DASHBOARD</button>
+<button class="navbtn" data-page="commands"><span class="navicon">⌘</span>COMMANDS</button>
+<button class="navbtn" data-page="codelab"><span class="navicon">⌨</span>CODE LAB</button>
+<button class="navbtn" data-page="tools"><span class="navicon">⚙</span>DEV TOOLS</button>
+<button class="navbtn" data-page="security"><span class="navicon">⬡</span>SECURITY</button>
+<button class="navbtn" data-page="terms"><span class="navicon">▤</span>TERMS</button>
+<button class="navbtn" data-page="settings"><span class="navicon">☷</span>SETTINGS</button>
+<button class="navbtn" data-page="about"><span class="navicon">ⓘ</span>ABOUT</button>
+</div><div class="sidefoot">Y33Py CORE INTERFACE<br>THINK • BUILD • ANALYZE • CREATE</div></aside>
+<main class="mainpanel">
+<section class="page active" id="page-dashboard">
+<div class="pagehead"><div><div class="kicker">01 // SYSTEM OVERVIEW</div><h1>Y33Py Command Center</h1><p class="sub">Your workspace for ideas, software, and projects.</p></div><span class="tag">BLUE CORE ACTIVE</span></div>
+<div class="stats"><div class="stat"><small>SYSTEM STATUS</small><strong>Operational</strong><em>● Ready</em></div><div class="stat"><small>INTERFACE</small><strong>v1.0.0</strong><em>Command Center</em></div><div class="stat"><small>CREATOR</small><strong>Tagzz</strong><em>Y33Py project</em></div></div>
+<div class="sectiontitle">QUICK ACCESS</div><div class="quickgrid">
+<button class="action" data-go="commands"><strong>⌘ Command Directory</strong><span>Browse and copy assistant commands</span></button>
+<button class="action" data-go="codelab"><strong>⌨ Code Lab</strong><span>Choose a language or platform</span></button>
+<button class="action" data-go="tools"><strong>⚙ Developer Tools</strong><span>Plan, review, and improve projects</span></button>
+<button class="action" data-go="security"><strong>⬡ Security Center</strong><span>Build with privacy and safety in mind</span></button>
+</div>
+<div class="statusbox"><div><strong>SYSTEM MESSAGE</strong><br><span id="systemMessage">Y33Py interface initialized. Ready for your next project.</span></div><span>● ONLINE</span></div>
+<div class="sectiontitle">Y33Py PROMPT</div><p class="sub">Copy the assistant identity prompt and paste it into ChatGPT or Claude to use Y33Py there.</p><button class="primary" style="margin-top:12px" data-go="about">View assistant details ↗</button>
+</section>
+<section class="page" id="page-commands">
+<div class="pagehead"><div><div class="kicker">02 // COMMAND DIRECTORY</div><h1>Command Directory</h1><p class="sub">Select a command to inspect or copy it.</p></div><span class="tag">INTERACTIVE</span></div>
+<input class="search" id="commandSearch" type="search" placeholder="⌕  Search commands...">
+<div class="commandlist" id="commandList"></div>
+<div class="selectedbox"><div class="row"><div><div class="kicker">SELECTED COMMAND</div><code id="selectedCommand">/status</code></div><button class="primary" id="copyCommand">Copy command ⧉</button></div><p class="sub" id="selectedDescription" style="margin-top:7px">Show current assistant status.</p><div class="notice" id="commandNotice" aria-live="polite"></div></div>
+</section>
+<section class="page" id="page-codelab">
+<div class="pagehead"><div><div class="kicker">03 // DEVELOPMENT ENVIRONMENTS</div><h1>Code Lab</h1><p class="sub">Pick a stack to start planning or building.</p></div><span class="tag">BUILD MODE</span></div>
+<div class="tiles">
+<button class="tile" data-topic="Python"><div class="tileicon">🐍</div><strong>Python</strong><span>Scripts, automation, data, tools</span></button>
+<button class="tile" data-topic="JavaScript"><div class="tileicon">JS</div><strong>JavaScript</strong><span>Web apps and interactive experiences</span></button>
+<button class="tile" data-topic="HTML and CSS"><div class="tileicon">◇</div><strong>HTML / CSS</strong><span>Responsive websites and interfaces</span></button>
+<button class="tile" data-topic="C sharp"><div class="tileicon">C#</div><strong>C#</strong><span>Application and game development</span></button>
+<button class="tile" data-topic="Unity"><div class="tileicon">◈</div><strong>Unity</strong><span>Games, VR, and interactive worlds</span></button>
+<button class="tile" data-topic="Android development"><div class="tileicon">▣</div><strong>Android Development</strong><span>Mobile app architecture</span></button>
+<button class="tile" data-topic="API development"><div class="tileicon">⌁</div><strong>API Development</strong><span>Backend services and integrations</span></button>
+<button class="tile" data-topic="Project architecture"><div class="tileicon">⌘</div><strong>Project Architecture</strong><span>Structure, planning, and design</span></button>
+</div><div class="notice" id="labNotice" aria-live="polite"></div>
+</section>
+<section class="page" id="page-tools">
+<div class="pagehead"><div><div class="kicker">04 // ENGINEERING UTILITIES</div><h1>Developer Tools</h1><p class="sub">Choose a workflow to work through in your AI chat.</p></div><span class="tag">DEV SUITE</span></div>
+<div class="tiles">
+<button class="tile" data-topic="Code generator"><div class="tileicon">⌨</div><strong>Code Generator</strong><span>Create structured, usable code</span></button>
+<button class="tile" data-topic="Bug analyzer"><div class="tileicon">⌕</div><strong>Bug Analyzer</strong><span>Investigate errors and unexpected behavior</span></button>
+<button class="tile" data-topic="UI architect"><div class="tileicon">▦</div><strong>UI Architect</strong><span>Design layouts and user experiences</span></button>
+<button class="tile" data-topic="File planner"><div class="tileicon">▤</div><strong>File Planner</strong><span>Map folders and project files</span></button>
+<button class="tile" data-topic="Performance analyzer"><div class="tileicon">◴</div><strong>Performance Analyzer</strong><span>Find bottlenecks and improve efficiency</span></button>
+<button class="tile" data-topic="Documentation writer"><div class="tileicon">✎</div><strong>Documentation Writer</strong><span>Create clear technical documentation</span></button>
+</div><div class="notice" id="toolsNotice" aria-live="polite"></div>
+</section>
+<section class="page" id="page-security">
+<div class="pagehead"><div><div class="kicker">05 // TRUST & PROTECTION</div><h1>Security Center</h1><p class="sub">Responsible development practices for your projects.</p></div><span class="tag">SAFETY FIRST</span></div>
+<div class="bulletlist"><div class="bullet">Secure coding and safe defaults</div><div class="bullet">Permission and access reviews</div><div class="bullet">Input validation and output handling</div><div class="bullet">Dependency and package auditing</div><div class="bullet">Privacy protection and secret management</div><div class="bullet">Authorized security testing only</div></div>
+<div class="statusbox"><div><strong>SECURITY PRINCIPLE</strong><br><span>Only test systems you own or have explicit permission to assess.</span></div><span>⬡</span></div>
+</section>
+<section class="page" id="page-terms">
+<div class="pagehead"><div><div class="kicker">06 // USAGE GUIDELINES</div><h1>Terms of Service</h1><p class="sub">A few principles for using Y33Py responsibly.</p></div><span class="tag">GUIDELINES</span></div>
+<div class="bulletlist"><div class="bullet"><b>Authorized usage</b><br>Use tools and testing workflows only with systems you own or have permission to access.</div><div class="bullet"><b>Privacy</b><br>Keep passwords, API keys, private messages, and personal information protected.</div><div class="bullet"><b>Responsible development</b><br>Review generated code and test changes carefully before publishing.</div><div class="bullet"><b>Intellectual property</b><br>Respect software licenses, copyright, and creator ownership.</div><div class="bullet"><b>Accountability</b><br>You are responsible for reviewing and deciding how generated work is used.</div></div>
+</section>
+<section class="page" id="page-settings">
+<div class="pagehead"><div><div class="kicker">07 // INTERFACE CONFIGURATION</div><h1>Settings</h1><p class="sub">Current command center appearance.</p></div><span class="tag">CONFIG</span></div>
+<div class="panelbox"><div class="row"><strong>Interface theme</strong><span class="tag">BLACK / NEON BLUE</span></div><p class="sub" style="margin-top:8px">Midnight panels, electric blue borders, cyan highlights.</p></div>
+<div class="panelbox" style="margin-top:11px"><div class="row"><strong>Version</strong><span class="version">Y33Py v1.0.0</span></div></div>
+<button class="secondary" id="resetInterface" style="margin-top:14px">Reset selections</button><div class="notice" id="settingsNotice" aria-live="polite"></div>
+</section>
+<section class="page" id="page-about">
+<div class="pagehead"><div><div class="kicker">08 // PROJECT INFORMATION</div><h1>About Y33Py</h1><p class="sub">A creator workspace for thinking, building, analyzing, and creating.</p></div><span class="tag">ABOUT</span></div>
+<div class="panelbox"><div class="kicker">ASSISTANT IDENTITY</div><h2 style="margin:6px 0;color:#69d7ff">Y33Py.JAILBREAK</h2><p class="sub">A practical, creative AI assistant identity created to help turn ideas into finished projects.</p><div class="sectiontitle">CREATOR</div><strong>Tagzz</strong><div class="sectiontitle">MOTTO</div><strong style="color:#71d9ff">THINK • BUILD • ANALYZE • CREATE</strong></div>
+<div class="sectiontitle">SOCIAL LINKS</div><div class="socials"><a class="social" href="https://www.tiktok.com/@tagzzvr" target="_blank" rel="noopener noreferrer">♪ TikTok · @tagzzvr ↗</a><a class="social" href="https://www.youtube.com/@tagzziscool" target="_blank" rel="noopener noreferrer">▶ YouTube · @tagzziscool ↗</a><a class="social" href="https://github.com/tagzzvr-cmyk/Y33Py.JAILBREAK" target="_blank" rel="noopener noreferrer">⌘ GitHub ↗</a></div>
+<div class="sectiontitle">COPY Y33Py ASSISTANT PROMPT</div><p class="sub">Paste this into ChatGPT or Claude to use the Y33Py assistant identity.</p>
+<pre class="prompt" id="promptText">You are Y33Py, a capable, friendly, creative AI assistant created by Tagzz.
 
 YOUR IDENTITY
 Name: Y33Py
@@ -77,26 +120,25 @@ RESPONSE STYLE
 Use readable headings, lists, and code blocks when helpful. Be friendly without being overfamiliar. Give the most useful answer first. End with one specific next step when it would genuinely help.
 
 You are Y33Py. THINK • BUILD • ANALYZE • CREATE.</pre>
-<p class="hint">Tip: After pasting, send “Introduce yourself as Y33Py and help me with my project.”</p>
-</div>
+<button class="primary" id="copyPrompt" style="margin-top:10px">Copy Y33Py prompt ⧉</button><div class="notice" id="promptNotice" aria-live="polite"></div>
 </section>
-
-<section class="section wrap" id="socials">
-<h2>Follow Tagzz</h2>
-<p class="sub">More builds, videos, and Yeeps content.</p>
-<div class="social-links">
-<a class="social-card" href="https://www.tiktok.com/@tagzzvr" target="_blank" rel="noopener noreferrer"><span class="social-icon">♪</span><span><strong>TikTok</strong><small>@tagzzvr</small></span><span class="arrow">↗</span></a>
-<a class="social-card" href="https://www.youtube.com/@tagzziscool" target="_blank" rel="noopener noreferrer"><span class="social-icon">▶</span><span><strong>YouTube</strong><small>@tagzziscool</small></span><span class="arrow">↗</span></a>
+</main></div></div>
+<footer class="footer">© 2026 Y33Py.JAILBREAK · Created by Tagzz · THINK • BUILD • ANALYZE • CREATE</footer>
 </div>
-</section>
-
-</main>
-<footer><div class="wrap foot"><span>© 2026 Y33Py.JAILBREAK · Created by <strong>Tagzz</strong></span><span>THINK • BUILD • ANALYZE • CREATE</span></div></footer>
-
-
 <script>
-const copyButton=document.getElementById('copyPrompt');
-if(copyButton){copyButton.addEventListener('click',async()=>{const prompt=document.getElementById('promptText').innerText;try{await navigator.clipboard.writeText(prompt);copyButton.textContent='Copied ✓';}catch(error){const range=document.createRange();range.selectNodeContents(document.getElementById('promptText'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);copyButton.textContent='Select and copy';}setTimeout(()=>copyButton.textContent='Copy prompt ⧉',2200);});}
+const pages=[...document.querySelectorAll('.page')],navButtons=[...document.querySelectorAll('.navbtn')];
+function showPage(name){pages.forEach(p=>p.classList.toggle('active',p.id==='page-'+name));navButtons.forEach(b=>b.classList.toggle('active',b.dataset.page===name));window.scrollTo({top:0,behavior:'smooth'});}
+navButtons.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.go)));
+const commands=[['/menu','Open the command directory.'],['/code','Generate code for a project or feature.'],['/debug','Analyze an error and help troubleshoot it.'],['/explain','Explain code or a technical concept.'],['/optimize','Improve code quality and performance.'],['/review','Review code for bugs and improvements.'],['/build','Plan and build a project step by step.'],['/status','Show current assistant status.'],['/reset','Reset command center selections.']];
+let chosen='/status';const list=document.getElementById('commandList'),search=document.getElementById('commandSearch');
+function renderCommands(){const q=search.value.toLowerCase();list.innerHTML='';commands.filter(c=>(c[0]+' '+c[1]).toLowerCase().includes(q)).forEach(c=>{const b=document.createElement('button');b.className='command'+(chosen===c[0]?' selected':'');b.innerHTML='<span><b></b><small></small></span><span class="check"></span>';b.querySelector('b').textContent=c[0];b.querySelector('small').textContent=c[1];b.querySelector('.check').textContent=chosen===c[0]?'SELECTED':'SELECT';b.addEventListener('click',()=>{chosen=c[0];document.getElementById('selectedCommand').textContent=c[0];document.getElementById('selectedDescription').textContent=c[1];renderCommands();});list.appendChild(b);});}
+search.addEventListener('input',renderCommands);renderCommands();
+async function copyText(value,button,success){try{await navigator.clipboard.writeText(value);button.textContent=success;setTimeout(()=>button.textContent='Copy command ⧉',1800);}catch(e){const t=document.createElement('textarea');t.value=value;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();button.textContent=success;setTimeout(()=>button.textContent='Copy command ⧉',1800);}}
+document.getElementById('copyCommand').addEventListener('click',e=>copyText(chosen,e.currentTarget,'Copied ✓'));
+document.getElementById('copyPrompt').addEventListener('click',async e=>{const btn=e.currentTarget;try{await navigator.clipboard.writeText(document.getElementById('promptText').textContent);btn.textContent='Copied ✓';}catch(err){const range=document.createRange();range.selectNodeContents(document.getElementById('promptText'));const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);btn.textContent='Select and copy';}document.getElementById('promptNotice').textContent='Prompt ready to paste into ChatGPT or Claude.';setTimeout(()=>btn.textContent='Copy Y33Py prompt ⧉',1800);});
+document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{const message='I want to work on '+b.dataset.topic+'. Help me get started with a practical plan and the first deliverable.';const notice=document.getElementById(b.closest('#page-codelab')?'labNotice':'toolsNotice');notice.textContent='Next step: paste this into your Y33Py chat — '+message;}));
+document.getElementById('resetInterface').addEventListener('click',()=>{chosen='/status';search.value='';document.getElementById('selectedCommand').textContent='/status';document.getElementById('selectedDescription').textContent='Show current assistant status.';renderCommands();showPage('dashboard');document.getElementById('settingsNotice').textContent='Interface selections reset.';});
 </script>
-
-</body></html>
+</body>
+</html>
