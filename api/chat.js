@@ -7,7 +7,8 @@ Never claim to have accessed files, websites, accounts, or systems unless a tool
 Do not ask users to share passwords, API keys, or private credentials.
 If a request is unsafe or inappropriate, set a safe boundary and offer a safe alternative.`;
 
-const requestCounts = new Map();\nconst WINDOW_MS = 60 * 1000;
+const requestCounts = new Map();
+const WINDOW_MS = 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 10;
 
 module.exports = async function handler(req, res) {
@@ -17,7 +18,8 @@ module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
 
-  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown").split(",")[0].trim();\n  const now = Date.now();
+  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "unknown").split(",")[0].trim();
+  const now = Date.now();
   const previous = requestCounts.get(ip);
   if (!previous || now - previous.startedAt >= WINDOW_MS) requestCounts.set(ip, { startedAt: now, count: 1 });
   else if (previous.count >= MAX_REQUESTS_PER_WINDOW) return res.status(429).json({ error: "Too many messages right now. Please wait a minute and try again." });
